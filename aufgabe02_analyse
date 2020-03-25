@@ -1,0 +1,75 @@
+• Welche URL wird aufgerufen wenn Sie versuchen sich anzumelden?
+		Request URL: http://localhost/webdev-project-haudenmaulwurf/login
+
+• Welche „Method“ wird im Reiter Network angezeigt?		-
+		post
+
+
+• Welche URL wird aufgerufen wenn Sie versuchen sich zu registrieren?
+		Request URL: http://localhost/webdev-project-haudenmaulwurf/js/login.js
+
+• Welche „Method“ wird im Reiter Network angezeigt?
+		get
+
+• Versuchen Sie einen Nutzer mit dem Namen test zu registrieren – wie ist der
+Response? (Chrome Entwicklertools: Network -> klick bei Name auf login -> Response)
+		Accept-Ranges: bytes
+		Content-Length: 3389
+		Content-Type: application/javascript
+		Date: Wed, 25 Mar 2020 12:26:47 GMT
+		ETag: "d3d-5a1aa4896664f"
+		Last-Modified: Wed, 25 Mar 2020 09:13:37 GMT
+		Server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.2
+
+
+
+• Melden Sie sich an:
+o Benutzername: test
+o Passwort: testpassword
+• Legen Sie eine Neue Adresse an – wie ist hier die Method? Wie lautet der Name/aufgerufene URL
+		Request URL: http://localhost/webdev-project-haudenmaulwurf/api/address/?returnView=true
+		Request Method: GET
+
+
+• Bearbeiten Sie eine Adresse und klicken Sie auf speichern – wie ist hier die Method? (evtl. Haken bei „Preserve log“ setzen) Wie lautet hier der Name/aufgerufene URL?
+		Request URL: http://localhost/webdev-project-haudenmaulwurf/api/address/
+		Request Method: PUT
+
+• Löschen Sie die neu angelegte Adresse – wie ist hier die Method? Wie lautet hier der Name/aufgerufene URL?
+		Request URL: http://localhost/webdev-project-haudenmaulwurf/api/address/
+		Request Method: DELETE
+
+
+• Probieren Sie einmal eine eigene Route anzulegen. Beispielsweise, dass Sie eine zusätzliche url für den Login definieren
+(z.B. /anmelden) – der LoginController soll aber weiterhin verwendet werden.  Dies können Sie in der Datei includes/routes.php vornehmen. Rufen Sie anschließend die URL auf. Z.B::
+		$route['/anmelden'] = array('controller' => 'LoginController', 'uniqueName' => 'login');
+
+
+
+• Sehen Sie sich mal ein paar Views in dem Ordner includes/views an. Werfen Sie insbesondere einen Blick auf die Datei includes/views/parts/header.php
+Versuchen Sie nachzuvollziehen wie der View die Daten erhält. Offenbar wird im Controller mittels $this->view->variablenname = "wert“; ein Wert gesetzt.
+Auf diesen kann dann im view selbst mit $this->variablenname zugegriffenwerden.
+
+		Ich glaube, der view erhält die Daten vom Controller durch Zeilen wie z.B.:
+		<?php if($this->current == "login"): ?> oder
+		<?php if($this->current == "index"): ?> oder
+		<?php elseif($this->current == "register"): ?> etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
